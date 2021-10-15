@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Password
+    url: jdbc:mysql://localhost:3306/naat_news
+    username: activity_news
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
