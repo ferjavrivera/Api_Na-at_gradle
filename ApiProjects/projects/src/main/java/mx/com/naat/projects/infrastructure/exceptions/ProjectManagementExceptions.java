@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice(basePackages = "com.example.demo")
+@ControllerAdvice(basePackages = "mx.com.naat")
 public class ProjectManagementExceptions {
 	@ExceptionHandler(value = {KeyExists.class})
 	public ResponseEntity<Object> handlerKeyExists(KeyExists ex){
