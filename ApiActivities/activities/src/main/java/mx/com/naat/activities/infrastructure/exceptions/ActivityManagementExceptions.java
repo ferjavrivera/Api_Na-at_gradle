@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice("com.mx.naat.activityrecords")
+@ControllerAdvice("mx.com.naat.activities")
 public class ActivityManagementExceptions {
 	@ExceptionHandler(value = {KeyExists.class})
 	public ResponseEntity<Object> handlerKeyExists(KeyExists ex){
