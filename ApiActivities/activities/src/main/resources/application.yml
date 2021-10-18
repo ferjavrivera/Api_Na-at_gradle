@@ -8,9 +8,7 @@ spring:
     sql:
         init:
             mode: always
-    jpa:
-        hibernate:
-            ddl-auto: create
+    
         properties:
             hibernate:
                 format_sql: true
@@ -18,20 +16,26 @@ spring:
 
 ---
 spring:
-  config:
-    activate:
-      on-profile: dev
-  datasource:
-    password: naat_tech
-    url: jdbc:postgresql://localhost:3306/activity_records
-    username: naat_tech
+    config:
+        activate:
+            on-profile: dev
+    jpa:
+        hibernate:
+            ddl-auto: create
+    datasource:
+        password: naat_tech
+        url: jdbc:postgresql://localhost:3306/activity_records
+        username: naat_tech
 
 ---
 spring:
-  config:
-    activate:
-      on-profile: prod
-  datasource:
-    password: naat_tech
-    url: jdbc:postgresql://postgres:5432/activity_records
-    username: naat_tech
+    config:
+        activate:
+            on-profile: prod
+    jpa:
+        hibernate:
+            ddl-auto: create
+    datasource:
+        password: naat_tech
+        url: jdbc:postgresql://postgres:5432/activity_records
+        username: naat_tech
