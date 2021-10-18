@@ -1,0 +1,17 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    password: Password
+    url: jdbc:mysql://localhost:3306/activity_records
+    username: record_user
+  sql:
+    init:
+      mode: always
+
+    properties:
+      hibernate:
+        format_sql: true
+  jpa:
+    hibernate:
+      ddl-auto: create
