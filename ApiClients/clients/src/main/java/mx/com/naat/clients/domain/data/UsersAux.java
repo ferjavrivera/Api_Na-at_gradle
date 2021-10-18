@@ -15,5 +15,6 @@ import lombok.ToString;
 @ToString
 public class UsersAux{
 	private String name;
+	private String lastName;
 
 }
