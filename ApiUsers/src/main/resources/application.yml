@@ -5,6 +5,13 @@ spring:
     password: Password
     url: jdbc:mysql://localhost:3306/naat_users
     username: activity_user
+  sql:
+    init:
+      mode: always
+
+    properties:
+      hibernate:
+        format_sql: true
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create      
