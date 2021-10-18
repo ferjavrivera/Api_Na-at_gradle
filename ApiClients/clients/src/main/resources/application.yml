@@ -1,10 +1,11 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
     password: Password
-    url: jdbc:mysql://localhost:3306/naat_users
-    username: activity_user
+    url: jdbc:mysql://localhost:3306/naat_clients
+    username: activity_client
   sql:
     init:
       mode: always
@@ -14,4 +15,4 @@ spring:
         format_sql: true
   jpa:
     hibernate:
-      ddl-auto: create      
+      ddl-auto: create   

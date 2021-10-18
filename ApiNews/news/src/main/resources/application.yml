@@ -6,6 +6,17 @@ spring:
     password: Password
     url: jdbc:mysql://localhost:3306/naat_news
     username: activity_news
+  sql:
+    init:
+      mode: always
+
+    properties:
+      hibernate:
+        format_sql: true
+  jpa:
+    hibernate:
+      ddl-auto: create 
+      
   servlet:
     multipart:
       max-file-size: 10MB
