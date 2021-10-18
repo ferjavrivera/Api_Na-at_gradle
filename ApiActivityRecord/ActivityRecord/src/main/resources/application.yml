@@ -16,6 +16,3 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create    
-  jpa:
-    hibernate:
-      ddl-auto: none
