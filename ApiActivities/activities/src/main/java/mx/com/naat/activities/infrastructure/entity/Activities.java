@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Activities {
 	@Id
-	@Column(name = "ACTIVITY_ID")
+	@Column(name = "ACTIVITY_ID", columnDefinition = "BINARY(16)")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 	
@@ -36,19 +37,22 @@ public class Activities {
 	@Column(name = "MODIFICATION_DATE", columnDefinition = "TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP(3)")
 	private Date modificationDate;
 	
-	@Column(name = "ACTIVITY_ENABLED" ,columnDefinition = "BOOLEAN DEFAULT TRUE")
+	@Column(name = "ACTIVITY_ENABLED", nullable=false, columnDefinition = "BOOLEAN DEFAULT TRUE")
 	private boolean enabled;
 	@NotNull
 	@Column(name = "AUTHOR_ID", nullable = false)
 	private UUID nameAuthor;
 	@NotNull
-	@Column(name = "ACTIVITY_KEY", nullable = false)
+	@Size(max=50)
+	@Column(name = "ACTIVITY_KEY", nullable = false, unique = true)
 	private String key;
 	@NotNull
-	@Column(name = "ACTIVITY_NAME", nullable = false)
+	@Size(max=80)
+	@Column(name = "ACTIVITY_NAME", nullable = false, unique=true)
 	private String name;
-	
-	@Column(name = "DESCRIPTION", nullable = false)
+	@NotNull
+	@Size(max=150)
+	@Column(name = "DESCRIPTION", nullable = false, unique=true)
 	private String description;
 
 
