@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,7 +33,7 @@ public class Activities {
 	@Column(name = "MODIFICATION_DATE")
 	private LocalDateTime modificationDate;
 	
-	@Column(name = "ACTIVITY_ENABLED")
+	@Column(name = "ACTIVITY_ENABLED" ,columnDefinition = "BOOLEAN DEFAULT TRUE")
 	private boolean enabled;
 
 	@Column(name = "AUTHOR_ID")
@@ -52,5 +54,15 @@ public class Activities {
 		this.name = name;
 		this.description = description;
 	}
-	
+	@PrePersist
+	public void preinsert()
+	{
+		creationDate = LocalDateTime.now();
+		modificationDate = LocalDateTime.now();
+	}
+	@PreUpdate
+	public void preupdate()
+	{
+		modificationDate = LocalDateTime.now();
+	}
 }
